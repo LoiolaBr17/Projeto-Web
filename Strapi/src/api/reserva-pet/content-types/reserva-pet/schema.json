@@ -31,7 +31,8 @@
       "enum": [
         "Solicitada",
         "Marcada",
-        "Cancelada"
+        "Cancelada",
+        "Concluída"
       ],
       "default": "Solicitada"
     }

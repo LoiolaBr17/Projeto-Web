@@ -24,6 +24,7 @@
                             <option value="Solicitada" v-if="reserva.attributes.Status!='Solicitada'">Solicitada</option>
                             <option value="Marcada" v-if="reserva.attributes.Status!='Marcada'">Marcada</option>
                             <option value="Cancelada" v-if="reserva.attributes.Status!='Cancelada'">Cancelada</option>
+                            <option value="Concluída" v-if="reserva.attributes.Status!='Concluída'">Concluída</option>
                         </select>
                     </div>
                 </div>
