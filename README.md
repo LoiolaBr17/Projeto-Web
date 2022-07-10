@@ -1,11 +1,11 @@
-# NOME DO PROJETO
+# PROJETO : PET-SPA
 
 Sistema de agendamento de seções de cuidados para pets em uma pet-shop, como por exemplo Tosa e Banho.
 
 ## Membros da equipe
 
  MATEUS GONÇALVES LOIOLA - 496797
-ODIMAR SOUSA FALCAO FILHO - 496581
+ ODIMAR SOUSA FALCAO FILHO - 496581
 
 ## Tecnologias e frameworks utilizados
 
@@ -13,15 +13,13 @@ Vue : é um framework JavaScript de código-aberto, focado no desenvolvimento de
 CSS :  é um mecanismo para adicionar estilo a um documento Web.
 HTML : é uma linguagem de marcação utilizada na construção de páginas na Web.
 
-Breve descriÃ§Ã£o das tecnologias utilizadas.
-
 Strapi : Strapi é um sistema de gerenciamento de conteúdo (CMS ) e framework web desenvolvido como software de código aberto. 
 
-## PapÃ©is ou tipos de usuÃ¡rio do sistema
+## Papeis ou tipos de usuÃ¡rio do sistema
 
 Adminstrador e Cliente, ambos os usuários são autenticados.
 
-## Entidades, Tabelas ou ColeÃ§Ãµes utilizadas
+## Entidades, Tabelas ou Coleções utilizadas
 
 Administrador, Cliente e Serviços
 
@@ -29,14 +27,23 @@ Administrador, Cliente e Serviços
 
 | Entidade| Create | Read | Update | Delete |
 | --- | --- | --- | --- | --- |
-| Administrador | X |  X  | X  | X |
-| Cliente | X |    |  X | X |
-| Serviço | X |    |  |  |
+| Administrador | |  X  |   |  |
+| Cliente | X |  X  |   |  |
+| Serviço | X | X  |  | X |
 
 ## Rotas da API REST utilizadas
 
 
-| MÃ©todo HTTP | URL |
+| Métodos HTTP | URL |
 | --- | --- |
-| GET | api/entidade1/|
-| POST | api/entidade2 |
+| GET | http://localhost:1337/api/users/me |
+| GET | http://localhost:1337/api/pacotes |
+| GET | http://localhost:1337/api/reserva-pets?filters[EmailDono][$eq]=${email} |
+| GET | http://localhost:1337/api/reserva-pets |
+| POST | http://localhost:1337/auth/local |
+| POST | http://localhost:1337/api/users |
+| PUT | Put  http://localhost:1337/api/reserva-pets/${id} |
+| DELETE | hhttp://localhost:1337/api/reserva-pets/${id} |
+| DELETE | http://localhost:1337/api/reserva-pets/${id} |
+
+
