@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reserva_pets",
+  "info": {
+    "singularName": "reserva-pet",
+    "pluralName": "reserva-pets",
+    "displayName": "ReservaPet",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Pet": {
+      "type": "string"
+    },
+    "Horario": {
+      "type": "date"
+    },
+    "pacote": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pacote.pacote"
+    },
+    "EmailDono": {
+      "type": "email"
+    },
+    "Status": {
+      "type": "enumeration",
+      "enum": [
+        "Solicitada",
+        "Marcada",
+        "Cancelada"
+      ],
+      "default": "Solicitada"
+    }
+  }
+}
