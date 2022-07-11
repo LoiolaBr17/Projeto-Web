@@ -42,8 +42,8 @@ Administrador, Cliente e Serviços
 | GET | http://localhost:1337/api/reserva-pets |
 | POST | http://localhost:1337/auth/local |
 | POST | http://localhost:1337/api/users |
-| PUT | Put  http://localhost:1337/api/reserva-pets/${id} |
-| DELETE | hhttp://localhost:1337/api/reserva-pets/${id} |
+| PUT | http://localhost:1337/api/reserva-pets/${id} |
+| DELETE | http://localhost:1337/api/reserva-pets/${id} |
 | DELETE | http://localhost:1337/api/reserva-pets/${id} |
 
 
