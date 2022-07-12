@@ -63,7 +63,7 @@ export default {
                 }
             }
 
-            console.log(dados)
+            
 
             try {
                 const response = await axios.post('http://localhost:1337/api/pacotes',dados)

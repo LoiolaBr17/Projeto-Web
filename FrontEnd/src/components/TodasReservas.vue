@@ -66,8 +66,27 @@ export default {
                 },
             })
             
-            
-            this.reservas = response.data.data
+            let teste = response
+
+            for(let i=0; i<teste.data.data.length; i++){
+               
+                if(teste.data.data[i].attributes.pacote.data === null){
+                    teste.data.data[i].attributes.pacote = {
+                        data:{
+                            attributes: {
+                                Nome: "Pacote Indisponível"
+                            }
+                        }
+                    }
+                }else{
+
+                }
+
+            }
+
+            this.reservas = teste.data.data
+
+            // this.reservas = response.data.data
 
         },
         updatedStatusReserva(e,id){

@@ -62,11 +62,53 @@ export default {
 
         async DelServico(id){
             const token = this.getToken
-            const response = await axios.delete(`http://localhost:1337/api/pacotes/${id}`,{
+
+            const response3 = await axios.delete(`http://localhost:1337/api/pacotes/${id}`,{
                 headers: {Authorization: `Bearer ${token}`}
             })
+
+            const response = await axios.get('http://localhost:1337/api/reserva-pets',{
+                headers: {Authorization: `Bearer ${token}`},
+                params: {
+                    populate: "*",
+                },
+            })
             
+            let teste = response
+            let ids = []
+
+
+            for(let i=0; i<teste.data.data.length; i++){
+                if(teste.data.data[i].attributes.pacote.data === null){
+                   if(teste.data.data[i].attributes.Status === "Marcada" ){
+                        if(!ids.includes(teste.data.data[i])){
+                            ids.push(teste.data.data[i].id)
+                        }
+                   }else if(teste.data.data[i].attributes.Status === "Solicitada"){
+                        if(!ids.includes(teste.data.data[i])){
+                            ids.push(teste.data.data[i].id)
+                        }
+                   }
+                }
+            }
+
+            const envio = {
+                data: {
+                    Status: "Cancelada"
+                }
+            }
+            
+            for(let x =0; x<ids.length; x++){
+                let idAtual = ids[x]
+                const response2 = await axios.put(`http://localhost:1337/api/reserva-pets/${idAtual}`,envio,{
+                    headers: {Authorization: `Bearer ${token}`}
+                })
+
+            }
+          
             this.getServicos()
+            
+
         },
 
         AddServico(){

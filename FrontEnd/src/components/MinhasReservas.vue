@@ -14,7 +14,9 @@
                     <div class="servico-table-row" v-for="reserva in this.reservas" :key="reserva.id">
                         <div class="order-number">{{reserva.attributes.Pet}}</div>
                         <div>{{reserva.attributes.Horario}}</div>
-                        <div>{{reserva.attributes.pacote.data.attributes.Nome}}</div>
+                        <div>
+                            {{reserva.attributes.pacote.data.attributes.Nome}}
+                        </div>
                         <div>{{reserva.attributes.Status}}</div>
                         <button class="btn" @click="apagarReserva(reserva.id)">X</button>
                     </div>
@@ -64,9 +66,25 @@ export default {
                 },
             })
             
+            let teste = response
             
-            this.reservas = response.data.data
+            for(let i=0; i<teste.data.data.length; i++){
+               
+                if(teste.data.data[i].attributes.pacote.data === null){
+                    teste.data.data[i].attributes.pacote = {
+                        data:{
+                            attributes: {
+                                Nome: "Pacote Indisponível"
+                            }
+                        }
+                    }
+                }else{
 
+                }
+
+            }
+
+            this.reservas = teste.data.data
         },
         async updatedStatusReserva(e,id){
 

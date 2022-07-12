@@ -8,12 +8,15 @@ export const usuarioStore = defineStore('usuario', {
         return {
             user:[],
             Logado: false,
+            isAdmin: false,
+            isAuthenticated: false
         }
     },
 
     getters: {
         getToken: (state) => {return state.user.jwt},
-        getEmail: (state) => {return state.user.email}
+        getEmail: (state) => {return state.user.email},
+        getUserName: (state) => {return state.user.username},     
     },
 
     actions: {
@@ -54,12 +57,12 @@ export const usuarioStore = defineStore('usuario', {
 
                 this.user.role = dados.data.role.name
                 this.Logado = true
-                
-                console.log(this.user.role)
 
                 if(this.user.role === 'Adm'){
+                    this.isAdmin = true
                     router.push('/administrador')
                 }else if(this.user.role === 'Authenticated'){
+                    this.isAuthenticated = true
                     router.push('/cliente')
                 }else {
                     router.push('/')
@@ -99,6 +102,8 @@ export const usuarioStore = defineStore('usuario', {
         async logout(){
             this.user = []
             this.Logado = false
+            this.isAdmin = false
+            this.isAuthenticated = false
             router.push('/')
         }
 

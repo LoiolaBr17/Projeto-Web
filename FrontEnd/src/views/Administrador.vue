@@ -19,7 +19,7 @@
 import Servicos from '../components/Servicos.vue'
 import EditarServicos from '../components/EditarServicos.vue'
 import TodasReservas from '../components/TodasReservas.vue'
-import router from '../router/index'
+
 
 export default {
   name: 'AdministradorView',
